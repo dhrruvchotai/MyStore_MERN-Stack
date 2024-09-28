@@ -1,0 +1,14 @@
+body {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+  }
+.navbar {
+
+    width: 100%;
+    z-index: 1000;
+}
+  
+   
