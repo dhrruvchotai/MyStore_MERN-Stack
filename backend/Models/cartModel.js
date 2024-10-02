@@ -1,23 +1,27 @@
 import mongoose from "mongoose";
-import User from "./userModel.js";
-import Product from "./productModel.js"; 
-
-const { productSchema } = Product; 
 
 const cartSchema = new mongoose.Schema({
-    userId: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        required: true, 
-        ref: 'User' 
+  products: [
+    {
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "Product",
+      },
+      title: { type: String, required: true },
+      price: { type: Number, required: true },
+      description: { type: String, required: true },
+      images: [{ type: String }],
+      quantity: { type: Number, default: 1 },
     },
-    products: [productSchema], 
-    totalAmount: { 
-        type: Number, 
-        required: true, 
-        default: 0 
-    },
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now }
+  ],
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
+
+cartSchema.pre('save', function (next) {
+  this.updatedAt = Date.now();
+  next();
 });
 
 const Cart = mongoose.model('Cart', cartSchema);

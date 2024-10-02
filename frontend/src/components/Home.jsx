@@ -1,34 +1,26 @@
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Carousel from "react-bootstrap/Carousel";
+import React, { useEffect } from 'react';
+import Swal from 'sweetalert2';
 import './Home.css';
-import MenCollection from "./MenCollection";
 
-function Home() {
+const Home = () => {
+  useEffect(() => {
+    Swal.fire({
+      position:"top",
+      icon:'warning',
+      title: 'Please Login or SignUp First.',
+      showConfirmButton: true,
+
+      customClass: {
+        popup: 'custom-alert', 
+        confirmButton: 'custom-button',
+      },
+    });
+  }, []); 
+
   return (
-    <>
-        <Carousel>
-        <Carousel.Item>
-            <img className="d-block w-100 carousel-image" src='/images/homeImg1.webp' alt="Slide 1" style={{width:110 + "vw"}}/>
-        </Carousel.Item>
-        <Carousel.Item>
-            <img className="d-block w-100 carousel-image" src='/images/homeImg2.webp' alt="Slide 2"/>
-        </Carousel.Item>
-        <Carousel.Item>
-            <img className="d-block w-100 carousel-image" src='/images/homeImg3.webp' alt="Slide 3"/>
-        </Carousel.Item>
-        <Carousel.Item>
-            <img className="d-block w-100 carousel-image" src='/images/homeImg4.webp' alt="Slide 4"/>
-        </Carousel.Item>
-        <Carousel.Item>
-            <img className="d-block w-100 carousel-image" src='/images/homeImg5.webp' alt="Slide 5"/>
-        </Carousel.Item>
-        </Carousel>
-
-        <MenCollection/>
-    </>
-
+    <div className="main">
+      <img src="/images/MyLogo.png" alt="Image not found!!"  className=''/>
+    </div>
   );
 }
 

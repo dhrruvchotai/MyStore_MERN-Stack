@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
 function Signup() {
@@ -18,11 +19,11 @@ function Signup() {
       });
 
       const handleResponse = (response) => {
-        if (response.status === 200) { 
+        if (response.status === 201) { 
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Your work has been saved',
+            title: 'SignUp Successful.',
             showConfirmButton: false,
             timer: 1500
           }).then(() => {
@@ -81,7 +82,7 @@ function Signup() {
             required
           />
         </div>
-        <button type='submit' className='btn btn-primary w-100'>
+        <button type='submit' className='btn bg-slate-900  hover:bg-slate-800 text-white w-100'>
           Sign Up
         </button>
 

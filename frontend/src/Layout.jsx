@@ -5,7 +5,7 @@ import { Outlet, Link } from "react-router-dom";
 function Layout() {
   return (
     <>
-      <nav className="navbar navbar-collapse navbar-collapse-lg navbar-expand-lg bg-slate-50 navbar-bg-body-tertiary mb-4 sticky-top opacity-90" style={{ width: "98.70vw"}}>
+      <nav className="navbar navbar-collapse navbar-collapse-lg navbar-expand-lg bg-slate-50 navbar-bg-body-tertiary mb-4 sticky-top opacity-90" style={{ width: "100vw"}}>
         <div className="container-fluid">
           <img src="/images/MyLogo.png" style={{ width: '11vh'}} alt="Logo"/>
 
@@ -18,7 +18,7 @@ function Layout() {
                 aria-label="Search"
                 style={{ width: "40vw" , height:"7vh",borderColor:"black",borderWidth:0.2+"vh"}} 
               />
-              <button className="btn bg-slate-900 w-24 text-lg rounded-xl text-white" type="submit" style={{height:6+"vh",marginTop:0.5+"vh",letterSpacing:"0.8px"}}>
+              <button className="btn bg-slate-900 w-24 text-lg rounded-xl text-white  hover:bg-slate-800" type="submit" style={{height:6+"vh",marginTop:0.5+"vh",letterSpacing:"0.8px"}}>
                 Search
               </button>
             </form>

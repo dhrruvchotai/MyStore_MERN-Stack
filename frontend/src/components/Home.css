@@ -1,5 +1,46 @@
-.carousel-image {
-    height: 70vh; /* Use 60% of the viewport height */
-    object-fit: cover; 
-  }
-  
+* {
+  box-sizing: border-box;
+}
+
+.main{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 83.7vh;
+  background-color:#feffff;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  font-size: 70px;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-alert {
+  opacity: 0.90;
+  background-color: #0f172a; 
+  color: white;
+}
+
+.custom-button {
+  background-color: white;
+  border: 1px solid white !important; 
+  border-radius: 5px; 
+  padding: 10px 20px;
+  color: black;
+}
+
+.custom-button:hover {
+  background-color:rgb(73, 70, 70);
+  color: white;
+  border: 1px solid rgb(61, 231, 61) !important;
+}
+
+.swal2-icon{
+  border: 3px solid red !important;
+ background-color: white; 
+ color: red !important;
+}

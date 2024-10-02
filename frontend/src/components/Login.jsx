@@ -18,14 +18,18 @@ function Login() {
 
       const handleResponse = (response) => {
         if (response.status === 200) { 
+
+          localStorage.setItem('email', response.data.email);
+
+          
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Your work has been saved',
+            title: 'Login Successful.',
             showConfirmButton: false,
             timer: 1500
           }).then(() => {
-            navigate('/home');
+            navigate('/collection');
           });
         } else {
           Swal.fire({
@@ -69,7 +73,7 @@ function Login() {
             required
           />
         </div>
-        <button type='submit' className='btn btn-primary w-100'>
+        <button type='submit' className='btn bg-slate-900  hover:bg-slate-800 text-white w-100'>
           Log In
         </button>
         <div className='mt-4 float-start'>New Here?<Link className='ms-1 text-blue-900 text-bold' to='/signup'>Signup</Link></div>
