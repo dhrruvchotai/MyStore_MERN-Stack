@@ -59,7 +59,7 @@ router.post('/login', async(req, res) => {
             return res.status(400).json({ message: 'User not found.' });
         }
 
-        const isMatch = await user.matchPassword(password); // This uses bcrypt.compare() from your model method
+        const isMatch = await user.matchPassword(password); 
 
         if (!isMatch) {
             return res.status(400).json({ message: 'Invalid password.' });
