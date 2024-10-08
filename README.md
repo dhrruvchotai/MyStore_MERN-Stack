@@ -6,13 +6,19 @@ A simple, Online Shopping Store (like Myntra) built using the MERN (MongoDB, Exp
 
 ## Features
 
-- Shop items as you want
-![Shop items as you want](ShopHere.png)
-- Add your items to the cart.
-![Add your items to the cart](Cart.png)
-- Remove items from the cart
 - User can SignUp/Login for their Accounts
+
 ![User can SignUp/Login for their Accounts](SignUpPage.png)
+
+- Shop items as you want
+ 
+![Shop items as you want](ShopHere.png)
+
+- Add your items to the cart.
+
+![Add your items to the cart](Cart.png)
+
+- Remove items from the cart
 - Protected password using bcryptJS
 
 ## Technology Stack
