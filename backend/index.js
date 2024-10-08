@@ -31,7 +31,7 @@ mongoose
     console.log("Successfully Connected to Database.");
 
     app.listen(process.env.PORT, () => {
-        console.log(`Sever is running on PORT : ${process.env.PORT}`)
+        console.log(`Sever is running on PORT: ${process.env.PORT}`)
     });
 })
 
