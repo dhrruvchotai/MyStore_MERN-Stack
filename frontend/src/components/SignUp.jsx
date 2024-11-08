@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const navigate = useNavigate();
+
 
   async function submit(e) {
     e.preventDefault();
@@ -18,32 +20,38 @@ function Signup() {
         username
       });
 
-      const handleResponse = (response) => {
-        if (response.status === 201) { 
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'SignUp Successful.',
-            showConfirmButton: false,
-            timer: 1500
-          }).then(() => {
-            navigate('/home');
-          });
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-          });
-        }
-      };
-
-      handleResponse(response);
-      
+      if (response.status === 201) {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'SignUp Successful.',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {
+          navigate('/collection');
+        });
+      }
     } catch (error) {
-      console.log(error);
+      if (error.response && error.response.status === 409) {
+        Swal.fire({
+          position: 'center',
+          icon: "info",
+          title: 'User already exists!',
+          showConfirmButton: false,
+          timer: 2000
+        }).then(() => {
+          navigate("/collection");
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        });
+      }
     }
   }
+
 
   return (
     <div className='container mt-5'>
