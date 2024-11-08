@@ -25,6 +25,11 @@ router.post('/signup', async(req, res) => {
             });
         }
 
+        const userExists = await User.findOne({ email });
+        if (userExists) {
+            return res.status(409).json({ message: 'User already exists. Please log in.' });
+        }
+
         const newUser = {
             name: username,
             email: email,
@@ -44,7 +49,7 @@ router.post('/signup', async(req, res) => {
 //Route to login a user.
 router.post('/login', async(req, res) => {
     
-    console.log('Signup Request Body:', req.body);
+    console.log('Login Request Body:', req.body);
     
     try {
         const { email, password } = req.body;
